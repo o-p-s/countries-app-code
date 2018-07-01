@@ -1,0 +1,179 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+ 
+  <nav id="sidebar"   >
+      <ng-scrollbar>
+    <ul class="list-unstyled components navbar navbar-dark bg-dark flex-column">
+            <div class="sidebar-header">
+              <h3 class="crop" >{{country.name}}</h3>
+              <h5>{{country.capital}}</h5>
+            </div>
+            
+            <li class="nav-item"><a class="active" [ngx-scroll-to]="'#region_b'">Region</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'#subregion_b'">Sub Region</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'flag_b'">Flag</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'nativename_b'">Native Name</a> </li>
+            <li class="nav-item"><a [ngx-scroll-to]="'population_b'">Population</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'languages_b'">Languages</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'#timezones_b'">Time Zones</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'#lonlat_b'">Latitude & Longitude</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'currencies_b'">Currencies</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'area'">Area</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'numcode_b'">Numeric Code</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'tld_b'">Top Level Domains</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'borders_b'">Borders</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'a2c_b'">Alpha 2 Code</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'a3c_b'">Alpha 3 Code</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'regionalblocs_b'">Regional Blocks</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'callingcodes_b'">Calling Codes</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'translations_b'">Translations</a></li>
+            <li class="nav-item"><a [ngx-scroll-to]="'cioc_b'">CIOC</a></li>
+    </ul>
+  </ng-scrollbar>
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+    <section id="region_b" class="container-fluid">
+      <h2>Region</h2>
+      <p>This Country falls under {{country.region}} region.</p>
+      <div class="line"></div>
+    </section>
+    
+    <section id="subregion_b">
+        <h2>Sub Region</h2>
+        <p>This Country falls under {{country.subregion}} sub-region.</p>
+        <div class="line"></div>
+    </section>
+
+    <section id="flag_b">
+        <h2>Flag</h2>
+        <img src="{{country.flag}}" />
+        <div class="line"></div>
+    </section>
+
+    <section id="nativename_b">
+        <h2>Native Name</h2>
+        <p>This Country is called as {{country.nativeName}} natively.</p>
+        <div class="line"></div>
+    </section>
+ 
+    <section id="population_b">
+        <h2>Population</h2>
+        <p>The Country has {{country.population}} residents.</p>
+        <div class="line"></div>
+    </section>
+
+    <section id="languages_b">
+        <h2>Languages</h2>
+        <p>Languages spoken in this country: <br></p>
+          <div *ngFor="let language of country.languages"><p class="link" [routerLink]="['/allregions/language',language.iso639_1]" >
+            Name : {{language.name}} <br>
+            Native Name : {{language.nativeName}}.<br>
+            The ISO639_1 code for this language : "{{language.iso639_1}}".<br>
+            The ISO639_2 code for this language : "{{language.iso639_2}}".
+          </p></div>
+          <div class="line"></div>
+    </section>
+
+    <section id="timezones_b">
+        <h2>Time Zones</h2>
+        <p>Times zones of this country <br> {{country.timezones }}.</p>
+        <div class="line"></div>
+    </section>
+
+    <section id="lonlat_b">
+        <h2>Latitude and Longitude</h2>
+        <p>{{country.latlng}}</p>
+        <div class="line"></div>
+    </section>
+
+    <section id="currencies_b">
+        <h2>Currencies</h2>
+        <p>The currencies used in this country <br></p>
+          <div *ngFor="let currency of country.currencies">
+            <p  class="link" [routerLink]="['/allregions/currency',currency.code]">Name : {{currency.name}}<br>
+            Symbol : {{currency.symbol}}<br>
+            Code : {{currency.code}}<br></p>
+          </div>
+        <div class="line"></div>
+    </section>
+
+    <section id="area">
+        <h2>Area</h2>
+        <p>{{country.area}}.</p>
+        <div class="line"></div>
+    </section>
+
+    <section id="numcode_b">
+        <h2>Numeric Code</h2>
+        <p>The Numeric code of this country is {{country.numericCode}}.</p>
+        <div class="line"></div>
+    </section>
+
+    <section id="tld_b">
+        <h2>Top Level Domains</h2>
+        <p>Top Level Domains of this country: "{{country.topLevelDomain}}".</p>
+        <div class="line"></div>
+    </section>
+
+    <section id="borders_b">
+        <h2>Borders</h2>
+        <p *ngIf="country.borders.length!=0">The Borders around this country <br> {{country.borders}}.</p>
+        <div class="line"></div>
+    </section>
+
+    <section id="a2c_b">
+        <h2>Alpha 2 Code</h2>
+        <p>The aplha 2 code of this country is "{{country.alpha2Code}}".</p>
+        <div class="line"></div>
+    </section>
+
+    <section id="a3c_b">
+        <h2>Alpha 3 Code</h2>
+        <p>The aplha 3 code of this country is "{{country.alpha3Code}}".</p>
+        <div class="line"></div>
+    </section>
+
+    <section id="regionalblocs_b">
+        <h2>Regional Blocks</h2>
+        <p>Regional blocks in this country</p>
+        <div *ngFor ="let bloc of country.regionalBlocs"><p>
+          Name : {{bloc.name}}<br>
+          Acronym : {{bloc.acronym}}<br>
+          Other Acronyms : {{bloc.otherAcronyms}}<br>
+          Other Names are {{bloc.otherNames}}<br>
+        </p></div>
+        <div class="line"></div>
+    </section>
+
+    <section id="callingcodes_b">
+        <h2>Calling Codes</h2>
+        <p>{{country.callingCodes}}.</p>
+        <div class="line"></div>
+    </section>
+
+    <section id="translations_b">
+        <h2>Translations</h2>
+        <p>It's translation in <br>
+          German : "{{country.translations.de}}"<br>
+          Spanish : "{{country.translations.es}}"<br>
+          French : "{{country.translations.fr}}"<br>
+          Japanese : "{{country.translations.ja}}"<br>
+          Italian : "{{country.translations.it}}"<br>
+          Breton : "{{country.translations.br}}"<br>
+          Portuguese : "{{country.translations.pt}}"<br>
+          Dutch : "{{country.translations.nl}}"<br>
+          Croatian : "{{country.translations.hr}}"<br>
+          Farsi : "{{country.translations.fa}}"<br>
+        </p>
+        <div class="line"></div>
+    </section>
+
+    <section id="cioc_b">
+        <h2>CIOC</h2>
+        <p>{{country.cioc}}.</p>
+    </section>
+  </div>
+</div>

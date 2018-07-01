@@ -1,0 +1,13 @@
+img {
+    margin: auto;
+    height: 90vh;
+    width: 100vw;
+  }
+  
+  ngb-carousel {
+    height:  90vh;
+    background-color: white;
+  }
+  .carousel-caption{
+    color:black;
+  }

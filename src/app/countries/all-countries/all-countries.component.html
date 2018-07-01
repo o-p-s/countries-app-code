@@ -1,0 +1,25 @@
+
+<div class="container" style="text-align: center">
+
+    <div class="row" style="text-align: center">
+        <div *ngIf="regionName" class="col-md-12" style="font-size: 24px; color:#00b0ff;font-weight: 800">All Countries in {{regionName | uppercase}}</div>
+    </div>
+    <br>
+    <div class="row" >
+      <div *ngFor="let country of countries" class="col-md-4" >
+      <mat-card>
+        <mat-card-header >
+          <mat-card-title><div class="crop">{{country.name|uppercase}}</div><br> ({{country.timezones[0]}})</mat-card-title>
+          <mat-card-subtitle>Sub Region: {{country.subregion}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img mat-card-image src="{{country.flag}}"/>
+        
+        <mat-card-actions layout="row" layout-align="end center">
+          <button mat-button (click)="navigateToCountryView(country)"  class="btn-primary">Get More Details</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+   </div>
+  
+</div>

@@ -1,0 +1,13 @@
+
+<ngb-carousel >
+    <ng-container *ngFor="let region of regions">
+    <ng-template ngbSlide >
+      <img src="{{region.regionImageUrl}}" alt="Regions" [routerLink]="['/region',region.regionName,'countries']">
+      <div class="carousel-caption">
+        <h3 [routerLink]="['/region',region.regionName,'countries']">{{region.regionName|uppercase}}</h3>
+        <p>{{region.shortInfo}}</p>
+      </div>
+    </ng-template>
+  </ng-container>
+  </ngb-carousel>
+  

@@ -1,0 +1,27 @@
+ /* ---------------------------------------------------
+      CARDS
+  ----------------------------------------------------- */
+.container{
+    margin-top:5vh;
+}
+  .mat-card-image{
+    height: 20vh;
+    width: 100%;
+}
+.mat-card-header{
+    display: inline-flex;
+    text-align: center;
+}
+.mat-card-title{
+    font-weight: 600;
+}
+ .crop{
+    font-weight: 600;
+    width: 16vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.col-md-4{
+    margin-bottom: 5px;
+}
